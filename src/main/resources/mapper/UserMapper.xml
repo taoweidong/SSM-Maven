@@ -8,7 +8,8 @@
 		<id column="age" property="age" jdbcType="INTEGER" />
 	</resultMap>
 	<!--查询单条数据 -->
-	<select id="selectUserById" parameterType="int" resultMap="UserResultMap">
+	<select id="selectUserById" parameterType="int"
+		resultMap="UserResultMap">
 		SELECT * FROM USER WHERE id = #{id}
 	</select>
 	<!--查询多条数据 -->
