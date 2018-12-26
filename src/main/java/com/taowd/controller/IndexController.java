@@ -17,9 +17,7 @@ import com.taowd.pojo.User;
 import com.taowd.service.UserService;
 
 /**
- * 
  * @author Taowd
- *
  */
 @Controller
 public class IndexController {
@@ -40,10 +38,25 @@ public class IndexController {
 
 	/**
 	 * 查询所有学生信息 返回JSON格式的数据
-	 * 
 	 * @return
 	 */
-	@RequestMapping("/getUserList")
+	@RequestMapping(value = "/getList", method = RequestMethod.GET)
+	@ResponseBody
+	public String getUserList() {
+		User user = new User();
+		List<User> userList = userService.getUserList(user);
+
+		String result = JSON.toJSONString(userList);
+		System.out.println(result);
+
+		return result;
+	}
+
+	/**
+	 * 查询所有学生信息 返回JSON格式的数据
+	 * @return
+	 */
+	@RequestMapping(value = "/getUserList", method = RequestMethod.POST)
 	@ResponseBody
 	public String userList() {
 		User user = new User();
@@ -55,7 +68,7 @@ public class IndexController {
 		return result;
 	}
 
-	@RequestMapping(value = "/postTest", method = RequestMethod.POST)
+	@RequestMapping(value = "/postTest/{name}", method = RequestMethod.POST)
 	@ResponseBody
 	public String postTest(@PathVariable String name) {
 

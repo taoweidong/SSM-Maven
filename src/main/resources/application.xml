@@ -10,9 +10,9 @@
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
            http://www.springframework.org/schema/context  
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
 	<!-- 自动扫描注解的bean -->
-	<context:component-scan
-		base-package="com.taowd.service" />
+	<context:component-scan base-package="com.taowd" />
 
 	<!-- 引入jdbc配置文件 -->
 	<bean id="propertyConfigurer"
