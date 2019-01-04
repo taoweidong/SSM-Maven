@@ -42,14 +42,11 @@ public class IndexController {
 	 */
 	@RequestMapping(value = "/getList", method = RequestMethod.GET)
 	@ResponseBody
-	public String getUserList() {
+	public List<User> getUserList() {
 		User user = new User();
-		List<User> userList = userService.getUserList(user);
 
-		String result = JSON.toJSONString(userList);
-		System.out.println(result);
+		return userService.getUserList(user);
 
-		return result;
 	}
 
 	/**
@@ -58,14 +55,10 @@ public class IndexController {
 	 */
 	@RequestMapping(value = "/getUserList", method = RequestMethod.POST)
 	@ResponseBody
-	public String userList() {
+	public List<User> userList() {
 		User user = new User();
-		List<User> userList = userService.getUserList(user);
 
-		String result = JSON.toJSONString(userList);
-		System.out.println(result);
-
-		return result;
+		return userService.getUserList(user);
 	}
 
 	@RequestMapping(value = "/postTest/{name}", method = RequestMethod.POST)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.taowd.dao.DoubanMapper">
+	<!-- 设置pojo类和数据库表中的字段一一对应 注意数据库字段和pojo类中的字段不一致时，此处一定要进行对应处理 -->
+	<resultMap type="com.taowd.pojo.Douban" id="DoubanResultMap">
+		<id column="serial_number" property="serialNumber"
+			jdbcType="INTEGER" />
+		<id column="movie_name" property="movieName" />
+		<id column="introduce" property="introduce" />
+		<id column="star" property="star" />
+		<id column="evaluate" property="evaluate" />
+		<id column="describe" property="describe" />
+	</resultMap>
+
+	<!--查询多条数据 -->
+	<select id="selectAll" parameterType="com.taowd.pojo.Douban"
+		resultMap="DoubanResultMap">
+		SELECT * FROM `douban`
+	</select>
+
+</mapper>

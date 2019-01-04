@@ -1,6 +1,7 @@
 package com.taowd.controller;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,6 +27,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @ContextConfiguration(locations = { "classpath:application.xml",
 		"classpath:springmvc/spring-mvc.xml" })
 @ComponentScan(basePackages = { "com.taowd.controller", "com.taowd.service" })
+@Ignore // 当前类不是单元测试类，只是为单元测试Controller层提供环境处理
 public class BaseTest {
 
 	@Autowired

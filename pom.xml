@@ -19,6 +19,8 @@
 		<junit.version>4.12</junit.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.2.1</mybatis.version>
+
+		<jackson.version>2.9.7</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -177,7 +179,16 @@
 			<version>22.0</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>SSM-Maven</finalName>
