@@ -61,8 +61,18 @@
 			value="classpath*:mapper/*.xml" />
 		<property name="configLocation"
 			value="classpath:mybatis/mybatis-config.xml" />
-		<!-- <property name="typeAliasesPackage" value="com.tiantian.ckeditor.model" 
-			/> -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageHelper">
+					<property name="properties">
+						<value>
+							dialect=hsqldb
+							reasonable=true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
 	</bean>
 
 

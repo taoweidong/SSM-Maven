@@ -1,11 +1,9 @@
 package com.taowd.service;
 
-import java.util.List;
-
-import com.taowd.pojo.Douban;
+import java.util.Map;
 
 public interface DoubanService {
 
-	List<Douban> getDoubanList();
+	Map<String, Object> getDoubanList(Integer page, Integer rows);
 
 }
