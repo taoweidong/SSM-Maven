@@ -20,9 +20,9 @@
 	<table id="dg" title="用户列表" class="easyui-datagrid" fitColumns="true" pagination="true" rownumbers="true" url="${pageContext.request.contextPath}/getUserList" fit="true">
 		<thead>
 			<tr>
-				<th field="id" width="50">唯一标识</th>
-				<th field="name" width="50">名称</th>
-				<th field="age" width="50">年龄</th>
+				<th field="id" halign="center" width="50">唯一标识</th>
+				<th field="name" halign="center" width="50">名称</th>
+				<th field="age" halign="center" width="50">年龄</th>
 			</tr>
 		</thead>
 	</table>

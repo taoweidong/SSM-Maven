@@ -27,7 +27,7 @@ public class IndexController {
 
 	@RequestMapping("/")
 	public ModelAndView index() {
-		// System.out.println("进入主页--------->");
+		System.out.println("进入主页--------->");
 		// 创建一个视图对象
 		ModelAndView mav = new ModelAndView("index");
 		User user = userService.selectUserById(3);

@@ -19,7 +19,7 @@
 <body class="easyui-layout">
 	<div data-options="region:'north',border:true" style="height: 60px; background: #B3DFDA; padding: 10px">头部布局</div>
 	<div region="west" style="width: 200px; height: 500px" title="导航菜单" split="true">
-		<div class="easyui-accordion">
+		<div class="easyui-accordion" split="true">
 			<div title="豆瓣图书管理" data-options="iconCls:'icon-more'">
 				<a href="javascript:openTab('豆瓣图书管理' ,'douban.jsp','icon-filter')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-filter'">豆瓣图书管理</a>
 			</div>
