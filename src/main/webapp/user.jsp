@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":"
-			+ request.getServerPort() + path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,14 +15,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
+
+<script type="text/javascript">
+	//格式化单元格提示信息  
+	function formatCellTooltip(value) {
+		return "<span title='" + value + "'>" + value + "</span>";
+	}
+</script>
 </head>
 <body>
 	<table id="dg" title="用户列表" class="easyui-datagrid" fitColumns="true" pagination="true" rownumbers="true" url="${pageContext.request.contextPath}/getUserList" fit="true">
 		<thead>
 			<tr>
-				<th field="id" halign="center" width="50">唯一标识</th>
-				<th field="name" halign="center" width="50">名称</th>
-				<th field="age" halign="center" width="50">年龄</th>
+				<th field="id" halign="center" formatter="formatCellTooltip" width="50">唯一标识</th>
+				<th field="name" halign="center" formatter="formatCellTooltip" width="50">名称</th>
+				<th field="age" halign="center" formatter="formatCellTooltip" width="50">年龄</th>
 			</tr>
 		</thead>
 	</table>

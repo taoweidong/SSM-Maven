@@ -30,10 +30,10 @@
 			<tr>
 				<th data-options="field:'serialNumber',width:10,halign:'center'">排名</th>
 				<th field="movieName" halign="center" formatter="formatCellTooltip" width="50">电影名称</th>
-				<th field="introduce" halign="center" width="50">分类</th>
-				<th field="star" halign="center" width="10">星级</th>
-				<th field="evaluate" halign="center" width="50">评论</th>
-				<th field="describe" halign="center" width="50">关键词</th>
+				<th field="introduce" halign="center" formatter="formatCellTooltip" width="50">分类</th>
+				<th field="star" halign="center" formatter="formatCellTooltip" width="10">星级</th>
+				<th field="evaluate" halign="center" formatter="formatCellTooltip" width="50">评论</th>
+				<th field="describe" halign="center" formatter="formatCellTooltip" width="50">关键词</th>
 			</tr>
 		</thead>
 	</table>
