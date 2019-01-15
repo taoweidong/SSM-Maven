@@ -64,3 +64,7 @@ Java version: 1.8.0
 - 增加easyui前端框架布局功能
 
 ## 2019年1月14日 新增鼠标悬浮显示表格内容
+
+## 2019年1月15日
+-  引入echarts图表插件，完成前后台交互代码
+- 解决js中使用${pageContext.request.contextPath}参数的问题：使用隐藏input然后在js中通过jquery去input的值

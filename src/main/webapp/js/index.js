@@ -19,3 +19,48 @@ function addTab(url, text, iconCls) {
 		content : content
 	});
 }
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+
+// 显示标题，图例和空的坐标轴
+myChart.setOption({
+	title : {
+		text : '优秀影片数年份Top10'
+	},
+	tooltip : {},
+	legend : {
+		data : [ '影片数' ]
+	},
+	xAxis : {
+		data : []
+	},
+	yAxis : {},
+	series : [ {
+		name : '影片数',
+		type : 'bar',
+		data : []
+	} ]
+});
+
+$.ajax({
+	url : $("#PageContext").val() + "/douban/chart",
+	type : "POST",
+	async : false,
+	cache : false,
+	success : function(data) {
+		myChart.setOption({
+			xAxis : {
+				data : data.categories
+			},
+			series : [ {
+				// 根据名字对应到相应的系列
+				name : '影片数',
+				data : data.data
+			} ]
+		});
+	},
+	error : function(error) {
+		console.log(error);
+	}
+});

@@ -11,10 +11,9 @@
 <title>EasyUI前端框架</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/themes/icon.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/locale/easyui-lang-zh_CN.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
+
+<link rel="shortcut icon" href="#" />
+
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'north',border:true" style="height: 60px; background: #B3DFDA; padding: 10px">头部布局</div>
@@ -28,16 +27,28 @@
 			</div>
 		</div>
 	</div>
-	<div data-options="region:'south',border:false" style="height: 50px; background: #A9FACD; padding: 10px;">south region</div>
+	<div data-options="region:'south',border:false" style="height: 20px; text-align: center; background: #A9FACD;">
+		© 2018 <a href="http://www.taoweidong.com" target="_blank">半度微凉</a> 琼ICP备17002905号-1
+	</div>
 	<div region="center">
 		<div class="easyui-tabs" fit="true" border="false" id="tabs">
 			<div title="首页">
 				<div align="center" style="padding-top: 100px;">
-					<font color="red" size="10">欢迎使用</font>
+					<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+					<div id="main" style="width: 600px; height: 400px;"></div>
 				</div>
 			</div>
 		</div>
 
 	</div>
+	<input id="PageContext" type="hidden" value="${pageContext.request.contextPath}" />
 </body>
+<!--注意：一般js文件放在body后面进行加载  -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/locale/easyui-lang-zh_CN.js"></script>
+<!-- 引入 ECharts 文件 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/echarts.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
+
 </html>

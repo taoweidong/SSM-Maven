@@ -1,6 +1,7 @@
 package com.taowd.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +26,13 @@ public class DoubanMapperTest {
 
 		System.out.println(JSON.toJSONString(resultList));
 
+	}
+
+	@Test
+	public void queryYearCount() {
+		List<Map<String, Object>> result = doubanMapper.queryYearCount();
+
+		System.out.println(JSON.toJSONString(result));
 	}
 
 }

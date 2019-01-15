@@ -15,7 +15,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.5.5.2/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>
-
+<link rel="shortcut icon" href="#" />
 <script type="text/javascript">
 	//格式化单元格提示信息  
 	function formatCellTooltip(value) {
