@@ -21,6 +21,8 @@
 		<div class="easyui-accordion" split="true">
 			<div title="豆瓣图书管理" data-options="iconCls:'icon-more'">
 				<a href="javascript:openTab('豆瓣图书管理' ,'douban.jsp','icon-filter')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-filter'">豆瓣图书管理</a>
+				<a href="javascript:openTab('影片分布国家统计' ,'tongji01.jsp','icon-tip')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-tip'">影片分布国家统计</a>
+				<a href="javascript:openTab('影片类型统计' ,'tongji02.jsp','icon-tip')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-tip'">影片类型统计</a>
 			</div>
 			<div title="用户信息管理" data-options="iconCls:'icon-man'">
 				<a href="javascript:openTab('用户信息管理','user.jsp','icon-sum')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sum'">用户信息管理</a>
@@ -35,7 +37,7 @@
 			<div title="首页">
 				<div align="center" style="padding-top: 100px;">
 					<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-					<div id="main" style="width: 600px; height: 400px;"></div>
+					<div id="main" style="width: 1000px; height: 400px;"></div>
 				</div>
 			</div>
 		</div>

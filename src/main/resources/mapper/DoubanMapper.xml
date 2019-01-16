@@ -19,12 +19,25 @@
 	</select>
 
 	<select id="queryYearCount" resultType="java.util.HashMap">
-	SELECT yearDate,COUNT(*) AS counts FROM (
-		SELECT *,SUBSTRING_INDEX(introduce,'/',1) AS yearDate,SUBSTRING(SUBSTRING_INDEX(introduce,'/',2) FROM LOCATE('/',SUBSTRING_INDEX(introduce,'/',2))+1) AS country,SUBSTRING_INDEX(introduce,'/',-1) AS type FROM douban
-		) a
-	GROUP BY yearDate
-	ORDER BY counts DESC
-	LIMIT 10
+		SELECT yearDate,COUNT(*)
+		AS counts FROM v_douban_count
+		GROUP BY yearDate
+		ORDER BY counts DESC
+	</select>
+
+	<select id="queryCountryCount" resultType="java.util.HashMap">
+		SELECT
+		country,COUNT(*) AS count FROM v_douban_count
+		GROUP BY country
+		ORDER BY
+		count DESC
+		LIMIT 10
+	</select>
+
+	<select id="queryTypeCount" resultType="java.util.HashMap">
+		SELECT type,COUNT(*) AS count FROM v_douban_count 
+		GROUP BY type
+		ORDER BY count DESC
 	</select>
 
 </mapper>

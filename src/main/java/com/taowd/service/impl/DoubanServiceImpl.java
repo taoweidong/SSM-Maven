@@ -68,11 +68,67 @@ public class DoubanServiceImpl implements DoubanService {
 		if (map1 == null || map2 == null) {
 			throw new NullPointerException();
 		}
-
-		Integer name1 = Integer.parseInt(Objects.toString(map1.get("yearDate")));
-		Integer name2 = Integer.parseInt(Objects.toString(map2.get("yearDate")));
-
+		Integer name1 = Integer.parseInt(Objects.toString(map1.get("yearDate")).substring(0, 4));
+		Integer name2 = Integer.parseInt(Objects.toString(map2.get("yearDate")).substring(0, 4));
 		return Integer.compare(name1, name2);
+	}
+
+	@Override
+	public Map<String, Object> queryCountryCount() {
+		Map<String, Object> result = Maps.newHashMap();
+		// 年份
+		List<String> xAxis = Lists.newArrayList();
+		// 统计结果
+		List<Integer> series = Lists.newArrayList();
+
+		List<Map<String, Object>> queryResult = doubanMapper.queryCountryCount();
+
+		for (Map<String, Object> map : queryResult) {
+			xAxis.add(Objects.toString(map.get("country")));
+			series.add(Integer.parseInt(Objects.toString(map.get("count"))));
+		}
+
+		result.put("xAxis", xAxis);
+		result.put("series", series);
+
+		return result;
+	}
+
+	@Override
+	public Map<String, Object> queryTypeCount() {
+		Map<String, Object> result = Maps.newHashMap();
+		// 年份
+		List<String> legend = Lists.newArrayList();
+		// 统计结果
+		List<Map<String, Object>> series = Lists.newArrayList();
+
+		List<Map<String, Object>> queryResult = doubanMapper.queryTypeCount();
+
+		Integer otherCount = 0;
+
+		for (Map<String, Object> map : queryResult) {
+			if (legend.size() <= 5) {
+				legend.add(Objects.toString(map.get("type")));
+
+				Map<String, Object> item = Maps.newHashMap();
+				item.put("name", Objects.toString(map.get("type")));
+				item.put("value", Integer.parseInt(Objects.toString(map.get("count"))));
+				series.add(item);
+			} else {
+				otherCount += Integer.parseInt(Objects.toString(map.get("count")));
+			}
+		}
+
+		legend.add("其他类型");
+
+		Map<String, Object> itemOther = Maps.newHashMap();
+		itemOther.put("name", "其他类型");
+		itemOther.put("value", otherCount);
+		series.add(itemOther);
+
+		result.put("legend", legend);
+		result.put("series", series);
+		return result;
 	}
 
 }

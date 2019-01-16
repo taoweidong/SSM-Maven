@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.common.collect.Maps;
 import com.taowd.service.DoubanService;
 
 @Controller
@@ -27,19 +26,26 @@ public class DoubanController {
 		return doubanService.getDoubanList(page, rows);
 	}
 
+	/**
+	 * 统计图1.
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/chart", method = RequestMethod.POST)
 	public Map<String, Object> echartsData() {
-		// 年份
-		String[] categories = { "衬衫", "羊毛衫", "羽绒服", "裤子", "鞋子", "袜子" };
-		// 统计结果
-		int[] data = { 5, 20, 36, 10, 10, 20 };
-
-		Map<String, Object> result = Maps.newHashMap();
-		result.put("categories", categories);
-		result.put("data", data);
-
 		return doubanService.queryYearCount();
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/chart2", method = RequestMethod.POST)
+	public Map<String, Object> echartsData2() {
+		return doubanService.queryCountryCount();
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/chart3", method = RequestMethod.POST)
+	public Map<String, Object> echartsTypeData() {
+		return doubanService.queryTypeCount();
 	}
 
 }

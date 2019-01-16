@@ -15,4 +15,8 @@ public interface DoubanMapper {
 	 */
 	List<Map<String, Object>> queryYearCount();
 
+	List<Map<String, Object>> queryCountryCount();
+
+	List<Map<String, Object>> queryTypeCount();
+
 }

@@ -17,6 +17,7 @@ function addTab(url, text, iconCls) {
 		iconCls : iconCls,
 		closable : true,
 		content : content
+
 	});
 }
 
@@ -26,19 +27,31 @@ var myChart = echarts.init(document.getElementById('main'));
 // 显示标题，图例和空的坐标轴
 myChart.setOption({
 	title : {
-		text : '优秀影片数年份Top10'
+		text : '豆瓣Top250影片数据分析',
+		subtext : '优秀影片数年份Top10',
+		x : 'left',
+
 	},
 	tooltip : {},
 	legend : {
 		data : [ '影片数' ]
 	},
 	xAxis : {
-		data : []
+		data : [],
+		show : true,
+		name : '年份',
+		axisLabel : { // 坐标轴标签
+			show : true, // 是否显示
+			inside : false, // 是否朝内
+			rotate : 40, // 旋转角度
+			margin : 5
+		// 刻度标签与轴线之间的距离
+		},
 	},
 	yAxis : {},
 	series : [ {
-		name : '影片数',
-		type : 'bar',
+		smooth : true,
+		type : 'line',
 		data : []
 	} ]
 });

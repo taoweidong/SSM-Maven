@@ -12,4 +12,8 @@ public interface DoubanService {
 	 */
 	Map<String, Object> queryYearCount();
 
+	Map<String, Object> queryCountryCount();
+
+	Map<String, Object> queryTypeCount();
+
 }
