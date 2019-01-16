@@ -69,3 +69,7 @@ Java version: 1.8.0
 -  引入echarts图表插件，完成前后台交互代码
 - 解决js中使用${pageContext.request.contextPath}参数的问题：使用隐藏input然后在js中通过jquery去input的值
 - echarts离线版本：https://github.com/gogo1217/echarts3-docs
+
+## 2019年1月16日
+- 增加影片类型分析图示
+- 增加影片国家分析柱状图
