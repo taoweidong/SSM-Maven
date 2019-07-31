@@ -26,11 +26,11 @@ SSM框架Maven基础项目，环境已经配置完毕，已经进行测试
 
 - 开发IDE
 
-Spring Tool Suite 
-Version: 3.9.6.RELEASE
-Build Id: 201809180727
-OS: Windows 8, v.6.2, x86_64 / win32
-Java version: 1.8.0
+    - Spring Tool Suite 
+    - Version: 3.9.6.RELEASE
+    - Build Id: 201809180727
+    - OS: Windows 8, v.6.2, x86_64 / win32
+    - Java version: 1.8.0
 
 - tomcat中运行
 
@@ -73,3 +73,8 @@ Java version: 1.8.0
 ## 2019年1月16日
 - 增加影片类型分析图示
 - 增加影片国家分析柱状图
+
+# 2019年7月31日
+- 优化数据SQL
+- 优化web.xml配置
+- 熟悉SSM环境搭建结构

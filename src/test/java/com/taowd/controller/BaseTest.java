@@ -44,6 +44,7 @@ public class BaseTest {
 	 */
 	@Before
 	public void setUp() {
+
 		// 设置编码格式
 		request = new MockHttpServletRequest();
 		request.setCharacterEncoding("UTF-8");

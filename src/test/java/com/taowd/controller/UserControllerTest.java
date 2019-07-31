@@ -40,6 +40,7 @@ public class UserControllerTest extends BaseTest {
 
 	@Test
 	public void userListTest() throws UnsupportedEncodingException, Exception {
+
 		// perform：执行一个RequestBuilder请求，会自动执行SpringMVC的流程并映射到相应的控制器执行处理；
 		String result = mockMvc.perform(MockMvcRequestBuilders//
 				// get:声明发送一个get请求的方法。另外提供了其他的请求的方法，如：post、put、delete等。
@@ -66,6 +67,7 @@ public class UserControllerTest extends BaseTest {
 	 */
 	@Test
 	public void postTestTest() throws UnsupportedEncodingException, Exception {
+
 		// perform：执行一个RequestBuilder请求，会自动执行SpringMVC的流程并映射到相应的控制器执行处理；
 		String result = mockMvc.perform(MockMvcRequestBuilders//
 				// get:声明发送一个get请求的方法。另外提供了其他的请求的方法，如：post、put、delete等。

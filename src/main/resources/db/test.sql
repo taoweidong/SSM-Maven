@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySql
+Source Server         : 127.0.0.1
 Source Server Version : 50536
 Source Host           : localhost:3306
 Source Database       : test
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50536
 File Encoding         : 65001
 
-Date: 2019-01-04 23:52:17
+Date: 2019-07-31 21:25:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -326,3 +326,12 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', '32', '李修改');
 INSERT INTO `user` VALUES ('4', '233', '诸葛连弩');
 INSERT INTO `user` VALUES ('5', '25', '李测试');
+
+-- ----------------------------
+-- View structure for v_douban_count
+-- ----------------------------
+DROP VIEW IF EXISTS `v_douban_count`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`  VIEW `v_douban_count` AS (
+SELECT serial_number,movie_name,star,evaluate,`describe`,introduce,substring_index(introduce,'/', 1) AS yearDate ,substring_index(introduce,'/', -1) AS type, 
+substring_index(substring_index(introduce,'/', 2),'/', -1) AS country FROM `douban`
+) ;

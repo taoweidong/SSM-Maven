@@ -23,6 +23,7 @@ public class DoubanController {
 	@RequestMapping("/query")
 	public Map<String, Object> query(@RequestParam(defaultValue = "1") Integer page,
 			@RequestParam(defaultValue = "10") Integer rows) {
+
 		return doubanService.getDoubanList(page, rows);
 	}
 
@@ -33,18 +34,21 @@ public class DoubanController {
 	@ResponseBody
 	@RequestMapping(value = "/chart", method = RequestMethod.POST)
 	public Map<String, Object> echartsData() {
+
 		return doubanService.queryYearCount();
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/chart2", method = RequestMethod.POST)
 	public Map<String, Object> echartsData2() {
+
 		return doubanService.queryCountryCount();
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/chart3", method = RequestMethod.POST)
 	public Map<String, Object> echartsTypeData() {
+
 		return doubanService.queryTypeCount();
 	}
 

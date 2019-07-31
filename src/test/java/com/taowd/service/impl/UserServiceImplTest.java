@@ -44,6 +44,7 @@ public class UserServiceImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+
 		MockitoAnnotations.initMocks(this);
 	}
 
@@ -52,6 +53,7 @@ public class UserServiceImplTest {
 	 */
 	@Test
 	public void testSelectUserById() {
+
 		// 设置参数
 		User user = new User();
 		user.setId("2018010203001");
@@ -73,6 +75,7 @@ public class UserServiceImplTest {
 
 	@Test
 	public void testGetUserList() {
+
 		// 设置参数
 		User user = new User();
 		user.setId("2018010203001");

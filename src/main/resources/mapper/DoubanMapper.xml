@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>  
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.taowd.dao.DoubanMapper">
-	<!-- 设置pojo类和数据库表中的字段一一对应 注意数据库字段和pojo类中的字段不一致时，此处一定要进行对应处理 -->
-	<resultMap type="com.taowd.pojo.Douban" id="DoubanResultMap">
-		<id column="serial_number" property="serialNumber"
-			jdbcType="INTEGER" />
-		<id column="movie_name" property="movieName" />
-		<id column="introduce" property="introduce" />
-		<id column="star" property="star" />
-		<id column="evaluate" property="evaluate" />
-		<id column="describe" property="describe" />
-	</resultMap>
+    <!-- 设置pojo类和数据库表中的字段一一对应 注意数据库字段和pojo类中的字段不一致时，此处一定要进行对应处理 -->
+    <resultMap type="com.taowd.pojo.Douban" id="DoubanResultMap">
+        <id column="serial_number" property="serialNumber"
+            jdbcType="INTEGER"/>
+        <id column="movie_name" property="movieName"/>
+        <id column="introduce" property="introduce"/>
+        <id column="star" property="star"/>
+        <id column="evaluate" property="evaluate"/>
+        <id column="describe" property="describe"/>
+    </resultMap>
 
-	<!--查询多条数据 -->
-	<select id="selectAll" parameterType="com.taowd.pojo.Douban"
-		resultMap="DoubanResultMap">
+    <!--查询多条数据 -->
+    <select id="selectAll" parameterType="com.taowd.pojo.Douban"
+            resultMap="DoubanResultMap">
 		SELECT * FROM `douban`
 	</select>
 
-	<select id="queryYearCount" resultType="java.util.HashMap">
+    <select id="queryYearCount" resultType="java.util.HashMap">
 		SELECT yearDate,COUNT(*)
 		AS counts FROM v_douban_count
 		GROUP BY yearDate
 		ORDER BY counts DESC
 	</select>
 
-	<select id="queryCountryCount" resultType="java.util.HashMap">
+    <select id="queryCountryCount" resultType="java.util.HashMap">
 		SELECT
 		country,COUNT(*) AS count FROM v_douban_count
 		GROUP BY country
@@ -34,7 +34,7 @@
 		LIMIT 10
 	</select>
 
-	<select id="queryTypeCount" resultType="java.util.HashMap">
+    <select id="queryTypeCount" resultType="java.util.HashMap">
 		SELECT type,COUNT(*) AS count FROM v_douban_count 
 		GROUP BY type
 		ORDER BY count DESC
