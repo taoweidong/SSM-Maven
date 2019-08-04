@@ -19,7 +19,8 @@
         <junit.version>4.12</junit.version>
         <!-- mybatis版本号 -->
         <mybatis.version>3.2.1</mybatis.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.9.9</jackson.version>
+        <jackson.databind.version>2.9.9.2</jackson.databind.version>
     </properties>
 
     <dependencies>
@@ -191,7 +192,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
+            <version>${jackson.databind.version}</version>
         </dependency>
     </dependencies>
     <build>
