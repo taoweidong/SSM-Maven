@@ -11,45 +11,48 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taowd.service.DoubanService;
 
+/**
+ * @author Taoweidong
+ */
 @Controller
 @RequestMapping("/douban")
 public class DoubanController {
 
-	@Autowired
+  @Autowired
+  private DoubanService doubanService;
 
-	private DoubanService doubanService;
+  @ResponseBody
+  @RequestMapping("/query")
+  public Map<String, Object> query(@RequestParam(defaultValue = "1") Integer page,
+      @RequestParam(defaultValue = "10") Integer rows) {
 
-	@ResponseBody
-	@RequestMapping("/query")
-	public Map<String, Object> query(@RequestParam(defaultValue = "1") Integer page,
-			@RequestParam(defaultValue = "10") Integer rows) {
+    return doubanService.getDoubanList(page, rows);
+  }
 
-		return doubanService.getDoubanList(page, rows);
-	}
+  /**
+   * 统计图1.
+   * 
+   * @return
+   */
+  @ResponseBody
+  @RequestMapping(value = "/chart", method = RequestMethod.POST)
+  public Map<String, Object> echartsData() {
 
-	/**
-	 * 统计图1.
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/chart", method = RequestMethod.POST)
-	public Map<String, Object> echartsData() {
+    return doubanService.queryYearCount();
+  }
 
-		return doubanService.queryYearCount();
-	}
+  @ResponseBody
+  @RequestMapping(value = "/chart2", method = RequestMethod.POST)
+  public Map<String, Object> echartsData2() {
 
-	@ResponseBody
-	@RequestMapping(value = "/chart2", method = RequestMethod.POST)
-	public Map<String, Object> echartsData2() {
+    return doubanService.queryCountryCount();
+  }
 
-		return doubanService.queryCountryCount();
-	}
+  @ResponseBody
+  @RequestMapping(value = "/chart3", method = RequestMethod.POST)
+  public Map<String, Object> echartsTypeData() {
 
-	@ResponseBody
-	@RequestMapping(value = "/chart3", method = RequestMethod.POST)
-	public Map<String, Object> echartsTypeData() {
-
-		return doubanService.queryTypeCount();
-	}
+    return doubanService.queryTypeCount();
+  }
 
 }

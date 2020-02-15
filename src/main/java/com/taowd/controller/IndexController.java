@@ -22,55 +22,57 @@ import com.taowd.service.UserService;
 @Controller
 public class IndexController {
 
-	@Resource
-	private UserService userService;
+  @Resource
+  private UserService userService;
 
-	@RequestMapping("/")
-	public ModelAndView index() {
-		System.out.println("进入主页--------->");
-		// 创建一个视图对象
-		ModelAndView mav = new ModelAndView("index");
-		User user = userService.selectUserById(3);
-		mav.addObject("user", user);
+  @RequestMapping("/")
+  public ModelAndView index() {
+    System.out.println("进入主页--------->");
+    // 创建一个视图对象
+    ModelAndView mav = new ModelAndView("index");
+    User user = userService.selectUserById(3);
+    mav.addObject("user", user);
 
-		return mav;
-	}
+    return mav;
+  }
 
-	/**
-	 * 查询所有学生信息 返回JSON格式的数据
-	 * @return
-	 */
-	@RequestMapping(value = "/getList", method = RequestMethod.GET)
-	@ResponseBody
-	public List<User> getUserList() {
-		User user = new User();
+  /**
+   * 查询所有学生信息 返回JSON格式的数据
+   * 
+   * @return
+   */
+  @RequestMapping(value = "/getList", method = RequestMethod.GET)
+  @ResponseBody
+  public List<User> getUserList() {
+    User user = new User();
 
-		return userService.getUserList(user);
+    return userService.getUserList(user);
 
-	}
+  }
 
-	/**
-	 * 查询所有学生信息 返回JSON格式的数据
-	 * @return
-	 */
-	@RequestMapping(value = "/getUserList", method = RequestMethod.POST)
-	@ResponseBody
-	public List<User> userList() {
-		User user = new User();
+  /**
+   * 查询所有学生信息 返回JSON格式的数据
+   * 
+   * @return
+   */
+  @RequestMapping(value = "/getUserList", method = RequestMethod.POST)
+  @ResponseBody
+  public List<User> userList() {
+    User user = new User();
 
-		return userService.getUserList(user);
-	}
+    return userService.getUserList(user);
+  }
 
-	@RequestMapping(value = "/postTest/{name}", method = RequestMethod.POST)
-	@ResponseBody
-	public String postTest(@PathVariable String name) {
+  @RequestMapping(value = "/postTest/{name}", method = RequestMethod.POST)
+  @ResponseBody
+  public String postTest(@PathVariable String name) {
 
-		System.out.println("获取到的参数为：" + name);
+    System.out.println("获取到的参数为：" + name);
 
-		HashMap<String, String> result = new HashMap<String, String>();
-		result.put("success", "成功，获取数据为：" + name);
+    HashMap<String, String> result = new HashMap<String, String>();
+    result.put("success", "成功，获取数据为：" + name);
 
-		return JSON.toJSONString(result);
-	}
+    return JSON.toJSONString(result);
+  }
 
 }
